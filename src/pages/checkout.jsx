@@ -1,13 +1,13 @@
-function Home() {
+function Checkout() {
   return (
     <div id="main-container" className="container mx-auto">
       <main className="text-center"> 
         <h1>
-          Hi
+          Chickcheck
         </h1>
       </main>
     </div>
   )
 }
 
-export default Home
+export default Checkout

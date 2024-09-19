@@ -1,13 +1,13 @@
-function Home() {
+function Product() {
   return (
     <div id="main-container" className="container mx-auto">
       <main className="text-center"> 
         <h1>
-          Hi
+          single product page
         </h1>
       </main>
     </div>
   )
 }
 
-export default Home
+export default Product
