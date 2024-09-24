@@ -1,33 +1,85 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+.object({
+  name: yup.string().min(3, "Name must be at least 3 characters").required("Please enter a name!"),
+  subject: yup.string().min(3, "Subject must be at least 3 characters").required("Please enter a subject!"),
+  email: yup.string().email("Email must be valid.").required("Email is required!"),
+  message: yup.string().min(3, "Message must be at least 3 characters").required("Please enter your message!"),
+})
+.required();
+
+
 export default function Contact() {
+
+
+  // const [isSubmit, setIsSubmit] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: {errors},
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  
+  function onSubmit(data) {
+    console.log(data);
+  }
+  // const [fullName, setFullName] = useState("");
+  // const [subject, setSubject] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const url = 'https://v2.api.noroff.dev/';
+
+  //   const response = await fetch(url, {
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify({fullName, subject, email, message})
+  //   })
+  // }
+
+
+
   return (
     <div>
       <h2 className="my-10 text-center font-semibold leading-7 text-gray-900">Contact Us</h2>
-      <form className="flex justify-center">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center">
         <div className="w-96 space-y-6">
           <div className="">
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-               <span className="text-gray-500 sm:text-sm">Full Name</span>
               </div>
-              <input type="text" name="first-name" id="first-name" autocomplete="given-name" className="block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              {/* <input value={fullName} onChange={(e) => setFullName(e.target.value)} type="text" name="full-name" id="full-name" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Full Name" /> */}
+              <input {...register("name")} type="text" name="name" id="name" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Full Name" />
+              {/* <p>{errors.name?.message}</p> */}
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-               <span className="text-gray-500 sm:text-sm">Subject</span>
               </div>
-              <input type="text" name="last-name" id="last-name" autocomplete="family-name" className="block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              {/* <input value={subject} onChange={(e) => setSubject(e.target.value)} type="text" name="subject" id="subject" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Subject" /> */}
+              <input{...register("subject")} type="text" name="subject" id="subject" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Subject" />
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-               <span className="text-gray-500 sm:text-sm">Email</span>
               </div>
-              <input id="email" name="email" type="email" autocomplete="email" className="block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+              {/* <input value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" type="email" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Email" /> */}
+              <input {...register("email")} id="email" name="email" type="email" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Email" />
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-               <span className="text-gray-500 sm:text-sm">Message</span>
               </div>
-              <textarea id="about" name="about" rows="3" className="block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+              {/* <textarea value={message} onChange={(e) => setMessage(e.target.value)} id="about" name="about" rows="3" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Your message"></textarea> */}
+              <textarea {...register("message")} id="message" name="message" rows="3" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Your message"></textarea>
             </div>
           </div>
           <div className="mt-6 flex items-center justify-center gap-x-6">
