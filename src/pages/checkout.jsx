@@ -1,3 +1,5 @@
+import React from "react";
+
 function Checkout() {
   return (
     <div id="main-container" className="container mx-auto">

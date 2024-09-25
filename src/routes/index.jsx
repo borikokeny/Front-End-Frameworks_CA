@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import {MainLayout} from "../layouts/index";
+import { MainLayout } from "../layouts/index";
 
 
 import { Home, Shop, Contact, Product, Checkout, CheckoutSuccess } from '../pages/index';

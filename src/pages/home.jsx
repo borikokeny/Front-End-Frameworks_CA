@@ -1,3 +1,5 @@
+import React from "react";
+
 function Home() {
   return (
     <div id="main-container" className="container mx-auto">

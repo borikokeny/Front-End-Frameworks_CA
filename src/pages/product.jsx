@@ -1,3 +1,6 @@
+import React from "react";
+
+
 function Product() {
   return (
     <div id="main-container" className="container mx-auto">
