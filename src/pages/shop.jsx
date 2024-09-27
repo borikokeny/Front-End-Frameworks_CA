@@ -1,5 +1,7 @@
 import React, { useEffect, useState, Link } from "react";
-import Ratings from "../features/ratings";
+import Ratings from "../components/ratings";
+import Search from "../components/search";
+
 
 const url = "https://v2.api.noroff.dev/online-shop";
 
@@ -17,15 +19,12 @@ function Shop() {
   const productList = products.map((product) => {
     const { id, title, description, price, discountedPrice, image, rating } = product;
     const gotDiscount = discountedPrice < price;
-
+ 
     return (
       <div className="">
         <img src={image.url} className="object-cover mt-6 h-48 w-96" alt={title} />       
         <h2 className="font-bold mt-2">{title}</h2>
-        {/* <p>{description}</p> */}
-        {/* <span><TiStarFullOutline className="text-yellow-500" /></span> */}
-       <Ratings rating={rating} />
-      
+        <Ratings rating={rating} />
         {gotDiscount ? (<div className="mb-3">
           <span className="text-red-700 font-bold pe-2">{discountedPrice} kr</span>
           <span className="line-through text-sm">{price} kr</span>
@@ -38,7 +37,10 @@ function Shop() {
     )
   });
   return (
+    <div>
+    <Search />
     <section className="grid grid-cols-4 gap-4">{productList}</section>
+    </div>
   )
 }
 

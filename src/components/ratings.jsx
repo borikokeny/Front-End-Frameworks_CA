@@ -5,7 +5,7 @@ const Ratings = ({ rating }) => {
   const stars = Array.from({ length: 5 }, (element, index) =>{
     let number = index + 0.5;
     return (
-      <span key={index} rating={index}>
+              <span key={index} rating={index}>
         {rating > index + 1 ? (
           <TiStarFullOutline className="text-yellow-500" />
         ) : rating > number ? (
