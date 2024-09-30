@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import useApi from "../hooks/api";
 import { useParams } from "react-router-dom";
+import ProductCard from "../components/productCard";
 import Ratings from "../components/ratings";
 
 
@@ -55,11 +56,20 @@ function Product() {
 
   return (
     <div>
-      {product ? (<div>
+
+{product ? ( // Conditionally render the product details if the product is available
+                <ProductCard product={product} />
+            ) : (
+                <p>Loading product details...</p> // Render a loading message if product data is not yet available
+            )}
+
+
+      {/* {product ? (<div>
         <h2 product={product}>{product.title}</h2>
-        <img src={product.image.url} className="object-cover mt-6 h-48 w-96" alt={product.title} /> 
+        <img src={product.image.url} className="object-cover mt-6 h-48 w-96" alt={product.title} />
+        <button>Add to cart</button> 
         </div> 
-    ) : (<p>load</p>)}
+    ) : (<p>load</p>)} */}
    
 
     {/* <img src={image.url} className="object-cover mt-6 h-48 w-96" alt={title} />       

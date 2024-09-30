@@ -24,7 +24,7 @@ function Shop() {
  
     return (
       <div className="">
-        <img src={image.url} className="object-cover mt-6 h-48 w-96" alt={title} />       
+        <img src={image.url}  alt={title} className="object-cover mt-6 h-48 w-96"/>       
         <h2 className="font-bold mt-2">{title}</h2>
         <Ratings rating={rating} />
         {gotDiscount ? (<div className="mb-3">
