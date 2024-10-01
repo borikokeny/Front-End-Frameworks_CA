@@ -7,55 +7,32 @@ const ProductCard = ({ product }) => {
   const gotDiscount = discountedPrice < price;
 
   return (
-    <div>
-      <img src={image.url} alt={title} className="object-cover mt-6 h-48 w-96" />
-      <h2 className="font-bold mt-2">{title}</h2>
-      <p>{description}</p>
-      <Ratings rating={rating} />
-        {gotDiscount ? (<div className="mb-3">
+    <div className="grid grid-cols-2 gap-1">
+      <div className="">
+        <img src={image.url} alt={title} className="object-cover mt-6 w-96 h-60" />
+      </div>
+      <div className="">
+        {gotDiscount ? (
+          <div className="mb-3">
           <span className="text-red-700 font-bold pe-2">{discountedPrice} kr</span>
           <span className="line-through text-sm">{price} kr</span>
-        </div>
+          </div>
          ) : (
           <p className="text-red-700 font-bold mb-3">{discountedPrice} kr</p>
          )}
-                       <div>
-                  Sale: {parseInt(((price - discountedPrice) * 100) / price)}%
-                </div>
-              
+      <div>
+       - {parseInt(((price - discountedPrice) * 100) / price)}%
+      </div>
+      <h2 className="font-bold mt-2">{title}</h2>
+      <p>{description}</p>
+      <Ratings rating={rating} />
         <Reviews key={reviews} reviews={reviews} />
-      
-          
           {product.tags.map((tag, index) => (
             <span key={index} className="pe-2">
               {tag}
             </span>
           ))}
-       
-      
-      {/* Display discounted price if available, otherwise display regular price */}
-      {/* {discountedPrice && discountedPrice < price ? (
-        <DiscountedPrice>Discounted Price: ${discountedPrice}</DiscountedPrice>
-      ) : (
-        <Price>Price: ${price}</Price>
-      )}
-      
-      {/* Display rating if available */}
-      {/* {rating && <Rating>Rating: {rating}/5</Rating>} */}
-      
-      {/* Display tags */}
-      {/* {tags && tags.length > 0 && (
-        <Tags>
-          {tags.map((tag, index) => (
-            <Tag key={index}>{tag}</Tag>
-          ))}
-        </Tags>
-      )} */}
-      
-      {/* Display reviews count */}
-      {/* {reviews && reviews.length > 0 && (
-        <Reviews>{reviews.length} Reviews</Reviews>
-      )} */} 
+       <button className="rounded-none bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Add to cart</button></div>
     </div>
   );
 };

@@ -12,7 +12,7 @@ export default function useApi(url) {
         setIsError(false);
         const fetchedData = await fetch(url);
         const json = await fetchedData.json();
-        setData(json);
+        setData(json.data);
       } catch (error) {
         console.log(error);
         setIsError(true);

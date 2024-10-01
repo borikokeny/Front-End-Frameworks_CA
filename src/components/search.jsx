@@ -1,27 +1,54 @@
 import React, { useState } from "react";
+import useApi from "../hooks/api";
 
-const Search = ({onSearch}) => {
-  const [searchProduct, setSearchProduct] = useState("");
+export default function Search() {
+  const url = `https://v2.api.noroff.dev/online-shop`;
+  const { data, isLoading } = useApi(url);
 
-  const handleChange = (e) => {
-    onSearch(e.target.value) ;
-    setSearchProduct(e.target.value);
+  const productsData = data;
 
-    // const filteredProducts = products.filter((product) => 
-    //   product.title.toLowerCase().includes(setSearch.toLowerCase())
-    // );
+  const [searchValue, setSearchValue] = useState("");
 
-    // setFilteredProduct(filteredProducts);
-    
-  }
+  const inputValue = (e) => {
+    const inputValue = e.target.value;
+    setSearchValue(inputValue);
+  };
+
+  const filteredProducts = productsData.filter((product) => {
+    const productTitle = product.title.trim().toLowerCase();
+    const searchValueLowerCase = searchValue.toLowerCase();
+
+    return productTitle.includes(searchValueLowerCase) && searchValue !== "";
+  });
 
   return (
-    <section>
+    <div>
       <form>
-        <input type="search" value={searchProduct} onChange={handleChange} placeholder="Search for Product" className="ps-2 block w-400 mt-5 rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+        <input
+          type="search"
+          name="search"
+          placeholder="Search..."
+          value={searchValue}
+          onChange={inputValue}
+          autoFocus={false}
+        />
+        {filteredProducts.length > 0 && (
+          <div>
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                href={`/product/${product.id}`}
+              >
+                <img
+                  src={product.imageUrl}
+                  alt={product.title}
+                />
+                <p>{product.title}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </form>
-    </section>
+    </div>
   );
 }
-
-export default Search;
