@@ -3,7 +3,7 @@ import useApi from "../hooks/api";
 
 export default function Search() {
   const url = `https://v2.api.noroff.dev/online-shop`;
-  const { data, isLoading } = useApi(url);
+  const { data } = useApi(url);
 
   const productsData = data;
 
