@@ -1,9 +1,12 @@
 import React from "react";
 import Ratings from "../components/ratings";
 import Reviews from "./reviews";
+import { useCart } from "./cart/context/CartContext";
 
 const ProductCard = ({ product }) => {
   const { title, description, price, discountedPrice, image, rating, tags, reviews, id } = product;
+
+  const {addToCart} = useCart();
   const gotDiscount = discountedPrice < price;
 
   return (
@@ -34,7 +37,7 @@ const ProductCard = ({ product }) => {
       <div className="mt-3 text-4xl">
       <Ratings rating={rating} />
       </div>
-       <button className="mt-11 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Add to cart</button>
+       <button onClick={() => addToCart(product)} className="mt-11 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Add to cart</button>
        <div className="mt-11">
        <h2 className="">Given reviews</h2>
        <Reviews key={reviews} reviews={reviews} />
