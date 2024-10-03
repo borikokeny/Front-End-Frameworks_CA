@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "../components/cart/context/CartContext";
+import "../styles/index.css";
 import { MainLayout } from "../layouts/index";
 import { Home, Shop, Contact, Product, Checkout, CheckoutSuccess } from '../pages/index';
-
+import { CartProvider } from "../components/cart/context/CartContext";
 
 function App() {
   return (
