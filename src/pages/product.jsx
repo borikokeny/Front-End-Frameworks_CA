@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 import ProductCard from "../components/productCard";
 import Ratings from "../components/ratings";
 
+// const {productId} = useParams();
+// const url = `https://v2.api.noroff.dev/online-shop/${productId}`;
+// const { data } = useApi(url);
 
 function Product() {
   const {productId} = useParams();
@@ -29,60 +32,15 @@ function Product() {
     }, [productId]);
   
 
-
-
-  // let {id} = useParams();
-  // const url = `https://v2.api.noroff.dev/online-shop/${id}`;
-  // const {data} = useApi(url);
-
-  // const products = data;
-  // const {id: productId, title, description, price, discountedPrice, image, rating} = products;
-
-  // const [productDetail, setProductDetail] = useState([]);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     const response = await fetch(url);
-  //     const json = await response.json();
-  //     setProductDetail(json.data);
-  //   }
-  //   getData();
-  // }, []);
-
-  // const { id: productId, title, description, price, discountedPrice, image, rating } = productDetail;  
-  // const gotDiscount = discountedPrice < price;
-
-  
-
   return (
     <div>
 
-{product ? ( // Conditionally render the product details if the product is available
+{product ? ( 
                 <ProductCard product={product} />
             ) : (
-                <p>Loading product details...</p> // Render a loading message if product data is not yet available
+                <p>Loading product details...</p> 
             )}
 
-
-      {/* {product ? (<div>
-        <h2 product={product}>{product.title}</h2>
-        <img src={product.image.url} className="object-cover mt-6 h-48 w-96" alt={product.title} />
-        <button>Add to cart</button> 
-        </div> 
-    ) : (<p>load</p>)} */}
-   
-
-    {/* <img src={image.url} className="object-cover mt-6 h-48 w-96" alt={title} />       
-    <h2 className="font-bold mt-2">{title}</h2>
-    <Ratings rating={rating} />
-    {gotDiscount ? (<div className="mb-3">
-      <span className="text-red-700 font-bold pe-2">{discountedPrice} kr</span>
-      <span className="line-through text-sm">{price} kr</span>
-    </div>
-     ) : (
-      <p className="text-red-700 font-bold mb-3">{discountedPrice} kr</p>
-     )} */}
-    {/* <Link href={`/product/${id}`} className="rounded-none bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">View product</Link> */}
   </div>
   );
 }
