@@ -17,6 +17,12 @@ const getCartFromLocalStorage = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(getCartFromLocalStorage);
 
+  const cartQuantity = cartItems.reduce((quantity, item) => item.quantity + quantity, 0);
+
+  function getItemQuantity(id) {
+    return cartItems.find((item) => item.id === id)?.quantity || 0;
+  }
+
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -60,11 +66,9 @@ export const CartProvider = ({ children }) => {
     setCartItems([])
   };
 
-
-
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }}
+      value={{ cartItems, cartQuantity, getItemQuantity, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }}
     >
       {children}
     </CartContext.Provider>
