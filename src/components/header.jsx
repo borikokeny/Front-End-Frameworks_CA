@@ -5,7 +5,7 @@ import { useCart } from "./cart/context/CartContext";
 
 
 export default function Header() {
-  const {cartItems} = useCart();
+  const {cartQuantity} = useCart();
   return (
     <header className="shadow-md">
     <div className="container mx-auto flex justify-between items-center p-4">
@@ -17,8 +17,8 @@ export default function Header() {
         <Link to="/contact" className="hover:text-gray-200">Contact</Link>
       </nav>
       <div>
-             <Link to="/checkout" className="text-2xl me-11"><RiShoppingBasket2Line />
-             {cartItems.length > 0 && <p>{cartItems.length}</p>}
+          <Link to="/checkout" className="text-2xl me-11"><RiShoppingBasket2Line />
+             {cartQuantity > 0 && <p>{cartQuantity}</p>}
        </Link>
       </div>
     </div>
