@@ -17,12 +17,6 @@ export default function Header() {
         <Link to="/contact" className="hover:text-gray-200">Contact</Link>
       </nav>
       <div>
-      
-        {/* <Link to="/checkout" className="text-2xl me-11"><RiShoppingBasket2Line />
-        {itemsInCart > 0 ? (
-              <p>{itemsInCart}</p>
-            ) : null}</Link> */}
-
              <Link to="/checkout" className="text-2xl me-11"><RiShoppingBasket2Line />
              {cartItems.length > 0 && <p>{cartItems.length}</p>}
        </Link>
