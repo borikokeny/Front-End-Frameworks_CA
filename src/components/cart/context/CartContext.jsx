@@ -1,19 +1,29 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
-// Create Cart Context
 const CartContext = createContext();
 
-// Custom hook to use the CartContext
 export const useCart = () => useContext(CartContext);
 
-// Cart Provider component
+const getCartFromLocalStorage = () => {
+  try {
+    const storedCart = localStorage.getItem('cartItems');
+    return storedCart ? JSON.parse(storedCart) : [];
+  } catch (error) {
+    console.error("Error parsing cart items from local storage:", error);
+    return [];
+  }
+};
+
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(getCartFromLocalStorage);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find(item => item.id === product.id);
-      
       if (existingItem) {
         return prevItems.map(item =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
@@ -46,32 +56,17 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([])
+  };
+
+
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity }}
+      value={{ cartItems, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart }}
     >
       {children}
     </CartContext.Provider>
   );
 };
-
-
-
-// import { createContext, useContext, useState, useEffect, Children } from "react";
-
-// const CartContext = createContext;
-
-// export const CartProvider = ({ children }) => {
-//   const [cartItems, setCartItems] = useState(() => {
-//     const savedCartItems = localStorage.getItem("cartItems");
-//     return savedCartItems ? JSON.parse(savedCartItems) : [];
-//   });
-
-//   const addToCart = (product) => {
-//     // const itemInTheCart = cartItems.find((cartItem) => cartItem.id === product.id);
-//     setCartItems
-
-
-//   }
-
-// }

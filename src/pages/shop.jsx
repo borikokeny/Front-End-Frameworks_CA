@@ -24,9 +24,8 @@ function Shop() {
     const gotDiscount = discountedPrice < price;
  
     return (
-      <div className="">
-        <Link to={`/product/${product.id}`} key={product.id}>
-        <img src={image.url}  alt={title} className="object-cover mt-6 h-48 w-96"/>       
+      <div key={product.id} className="">
+        <Link to={`/product/${product.id}`}><img src={image.url} alt={title} className="object-cover mt-6 h-48 w-96"/></Link>
         <h2 className="font-bold mt-2">{title}</h2>
         <Ratings rating={rating} />
         {gotDiscount ? (<div className="mb-3">
@@ -36,8 +35,7 @@ function Shop() {
          ) : (
           <p className="text-red-700 font-bold mb-3">{discountedPrice} NOK</p>
          )}
-        <Link to={`/product/${product.id}`} key={product.id} className="rounded-none bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">View product</Link>
-        </Link>
+        <Link to={`/product/${product.id}`} className="rounded-none bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">View product</Link>
       </div>
     )
   });

@@ -1,20 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../components/cart/context/CartContext";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { TiMinus, TiPlus } from "react-icons/ti";
 
 const Checkout = () => {
-  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
+  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart, clearCart } = useCart();
 
   const calculateTotal = () => {
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
   };
 
-  // const itemsInCart = cartItems.length
-
   return (
     <div>
-      <h1>Checkout</h1>
+      <h1>Shopping Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -40,8 +39,8 @@ const Checkout = () => {
             <div className="basis-1/3"></div>
           <h3 className="basis-2/3 ms-4  font-bold">Total: {calculateTotal()} NOK</h3>
           </div>
+          <Link to="/checkoutSuccess"  onClick={() => clearCart()} className="mt-11 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Checkout</Link>
         </div>
-        
       )}
     </div>
   );
