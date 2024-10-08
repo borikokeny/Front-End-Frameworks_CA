@@ -16,9 +16,9 @@ export default function Header() {
         <Link to="/shop" className="hover:text-gray-200">Shop</Link>
         <Link to="/contact" className="hover:text-gray-200">Contact</Link>
       </nav>
-      <div>
-          <Link to="/checkout" className="text-2xl me-11"><RiShoppingBasket2Line />
-             {cartQuantity > 0 && <p>{cartQuantity}</p>}
+      <div className="pt-7">
+          <Link to="/checkout" className="text-2xl me-11 relative"><RiShoppingBasket2Line />
+             {cartQuantity > 0 && <p className="absolute bottom-10 left-7 px-2 rounded-full bg-red-600">{cartQuantity}</p>}
        </Link>
       </div>
     </div>
