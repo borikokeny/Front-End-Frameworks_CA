@@ -32,7 +32,8 @@ export default function Search() {
           onChange={inputValue}
           autoFocus={false}
         />
-        {filteredProducts.length > 0 && (
+        </form>
+        {/* {filteredProducts.length > 0 && (
           <div>
             {filteredProducts.map((product) => (
               <div
@@ -40,15 +41,30 @@ export default function Search() {
                 href={`/product/${product.id}`}
               >
                 <img
-                  src={product.imageUrl}
-                  alt={product.title}
+                  src={product.image.url}
+                  alt={product.title} className="object-cover mt-6 h-48 w-96"
                 />
                 <p>{product.title}</p>
               </div>
             ))}
           </div>
+        )} */}
+            {filteredProducts.length > 0 && (
+          <div className="grid grid-cols-4 gap-4 border-b-4">
+            {filteredProducts.map((product) => (
+              <div
+                key={product.id}
+                href={`/product/${product.id}`}
+              >
+                <img
+                  src={product.image.url}
+                  alt={product.title} className="object-cover mt-6 h-48 w-96"
+                />
+                <p>{product.title}</p>
+              </div>
+            ) )}
+          </div>
         )}
-      </form>
     </div>
   );
 }
