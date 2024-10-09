@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
         <img src={image.url} alt={title} className="object-cover mt-6 w-full h-96" />
       </div>
       <div className="mt-7 ms-6">
-      {product.tags.map((tag, index) => (
+        {product.tags.map((tag, index) => (
             <span key={index} className="bg-red-600 text-white font-medium p-1 pb-2 px-2 me-2">
               {tag}
             </span>
@@ -37,9 +37,10 @@ const ProductCard = ({ product }) => {
       <div className="mt-3 text-4xl">
       <Ratings rating={rating} />
       </div>
-       <button onClick={() => addToCart(product)} className="mt-11 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Add to cart</button>
-       <div className="mt-11">
-       <h2 className="">Given reviews</h2>
+       <button onClick={() => addToCart(product)} className="mt-11 mb-30 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Add to cart</button>
+
+       <div className="mt-11 border-t-2">
+       <h2 className="font-semibold">Buyers reviews:</h2>
        <Reviews key={reviews} reviews={reviews} />
        </div>
       
