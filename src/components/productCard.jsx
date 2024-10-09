@@ -41,11 +41,9 @@ const ProductCard = ({ product }) => {
 
        <div className="mt-11 border-t-2">
        <h2 className="font-semibold">Buyers reviews:</h2>
-       <Reviews key={reviews} reviews={reviews} />
+       {reviews.length === 0 ? (<p>There was no review given</p>) : (  <Reviews key={reviews} reviews={reviews} />)}
        </div>
-      
        </div>
-       
     </div>
   );
 };
