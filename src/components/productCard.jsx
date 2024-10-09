@@ -34,10 +34,10 @@ const ProductCard = ({ product }) => {
       
       <h2 className="font-bold text-2xl mt-2">{title}</h2>
       <p className="mt-3">{description}</p>
-      <div className="mt-3 text-4xl">
+      <div className="mt-3 text-2xl">
       <Ratings rating={rating} />
       </div>
-       <button onClick={() => addToCart(product)} className="mt-11 mb-30 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Add to cart</button>
+       <button onClick={() => addToCart(product)} className="mt-11 mb-30 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-600">Add to cart</button>
 
        <div className="mt-11 border-t-2">
        <h2 className="font-semibold">Buyers reviews:</h2>
