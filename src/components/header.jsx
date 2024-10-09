@@ -12,13 +12,13 @@ export default function Header() {
       <div className="text-lg font-bold">
       <Link to="/" className="hover:text-gray-200"><img src={Logo} className="w-1/3"/></Link>
       </div>
-      <nav className="space-x-4">
-        <Link to="/shop" className="hover:text-gray-200">Shop</Link>
-        <Link to="/contact" className="hover:text-gray-200">Contact</Link>
+      <nav className="space-x-24 -me-24">
+        <Link to="/shop" className="text-xl font-semibold hover:text-gray-200">Shop</Link>
+        <Link to="/contact" className="text-xl font-semibold hover:text-gray-200">Contact</Link>
       </nav>
-      <div className="pt-7">
-          <Link to="/checkout" className="text-2xl me-11 relative"><RiShoppingBasket2Line />
-             {cartQuantity > 0 && <p className="absolute bottom-10 left-7 px-2 rounded-full bg-red-600">{cartQuantity}</p>}
+      <div className="px-8 pt-7 -ms-64">
+          <Link to="/checkout" className="text-3xl me-12 relative"><RiShoppingBasket2Line />
+             {cartQuantity > 0 && <p className="absolute text-xl bottom-12 w-7 left-7 ms-1 px-2 rounded-full bg-red-600 text-white">{cartQuantity}</p>}
        </Link>
       </div>
     </div>
