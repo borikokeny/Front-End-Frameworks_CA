@@ -12,18 +12,18 @@ const Checkout = () => {
   };
 
   return (
-    <div>
-      <h1>Shopping Cart</h1>
+    <div className="grid w-96 place-items-center border drop-shadow-md mt-6">
+      <h1 className="text-2xl mt-4">Your Cart</h1>
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="mb-6">Your cart is empty.</p>
       ) : (
         <div>
           {cartItems.map((item) => (
-            <div key={item.id} className="flex flex-row mt-3 w-64 pb-3 border-b-2">
-              <div className="basis-1/3">
+            <div key={item.id} className="grid grid-cols-3 mt-3 w-64 pb-3 border-b-2">
+              <div className="">
               <img src={item.image.url} alt={item.title} className="object-cover mt-6 size-24"/>
               </div>
-              <div className="basis-2/3 ms-4 mt-6">
+              <div className="col-span-2 ms-4 mt-6">
               <h2 className="font-bold">{item.title}</h2>
               <p className="text-red-600 font-medium mt-1">{item.price} NOK</p>
               <div className="grid grid-cols-4 gap-1 w-36 mt-1">
@@ -35,11 +35,12 @@ const Checkout = () => {
               </div>
             </div>
           ))}
-          <div className="flex flex-row mt-3 w-64">
-            <div className="basis-1/3"></div>
-          <h3 className="basis-2/3 ms-4  font-bold">Total: {calculateTotal()} NOK</h3>
+          <div className="grid grid-cols-3 mt-3 w-64">
+            <div className=""></div>
+          <h3 className="col-span-2 ms-4  font-bold">Total: {calculateTotal()} NOK</h3>
+          <div className=""></div>
+          <Link to="/checkoutSuccess" onClick={() => clearCart()} className="col-span-2 mt-8 mb-8 w-full rounded-none text-center bg-red-600 text-white px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Checkout</Link>
           </div>
-          <Link to="/checkoutSuccess"  onClick={() => clearCart()} className="mt-11 rounded-none bg-red-600 text-white w-1/4 px-2.5 py-1.5 text-sm font-semibold shadow-sm ring-1 ring-inset hover:bg-red-500">Checkout</Link>
         </div>
       )}
     </div>
