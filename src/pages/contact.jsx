@@ -13,12 +13,7 @@ const schema = yup
 })
 .required();
 
-
 export default function Contact() {
-
-
-  // const [isSubmit, setIsSubmit] = useState(false);
-
   const {
     register,
     handleSubmit,
@@ -30,26 +25,6 @@ export default function Contact() {
   function onSubmit(data) {
     console.log(data);
   }
-  // const [fullName, setFullName] = useState("");
-  // const [subject, setSubject] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [message, setMessage] = useState("");
-
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-
-  //   const url = 'https://v2.api.noroff.dev/';
-
-  //   const response = await fetch(url, {
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify({fullName, subject, email, message})
-  //   })
-  // }
-
-
 
   return (
     <div>
@@ -60,27 +35,36 @@ export default function Contact() {
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               </div>
-              {/* <input value={fullName} onChange={(e) => setFullName(e.target.value)} type="text" name="full-name" id="full-name" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Full Name" /> */}
               <input {...register("name")} type="text" name="name" id="name" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Full Name" />
-              {/* <p>{errors.name?.message}</p> */}
+              {errors.name && (
+                <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>
+              )}
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               </div>
-              {/* <input value={subject} onChange={(e) => setSubject(e.target.value)} type="text" name="subject" id="subject" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Subject" /> */}
-              <input{...register("subject")} type="text" name="subject" id="subject" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Subject" />
+              <input {...register("subject")} type="text" name="subject" id="subject" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Subject" />
+              {errors.subject && (
+                <p className="text-red-600 text-sm mt-1">
+                  {errors.subject.message}
+                </p>
+              )}
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               </div>
-              {/* <input value={email} onChange={(e) => setEmail(e.target.value)} id="email" name="email" type="email" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Email" /> */}
               <input {...register("email")} id="email" name="email" type="email" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Email" />
+              {errors.email && (
+                <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+              )}
             </div>
             <div className="relative mt-2">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               </div>
-              {/* <textarea value={message} onChange={(e) => setMessage(e.target.value)} id="about" name="about" rows="3" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Your message"></textarea> */}
               <textarea {...register("message")} id="message" name="message" rows="3" className="ps-2 block w-full rounded-none border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Your message"></textarea>
+              {errors.message && (
+                <p className="text-red-600 text-sm mt-1">{errors.message.message}</p>
+              )}
             </div>
           </div>
           <div className="mt-6 flex items-center justify-center gap-x-6">
