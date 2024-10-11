@@ -9,7 +9,10 @@ const ProductList = ({ products }) => {
         const gotDiscount = discountedPrice < price;
 
         return (
-          <div key={id} className="bg-white shadow-md rounded-none overflow-hidden">
+          <div
+            key={id}
+            className="bg-white shadow-md rounded-none overflow-hidden"
+          >
             <Link to={`/product/${id}`}>
               <img
                 src={image.url}
@@ -22,11 +25,15 @@ const ProductList = ({ products }) => {
               <Ratings rating={rating} />
               {gotDiscount ? (
                 <div className="mb-3">
-                  <span className="text-red-700 font-bold">{discountedPrice} NOK</span>
+                  <span className="text-red-700 font-bold">
+                    {discountedPrice} NOK
+                  </span>
                   <span className="line-through text-sm ml-2">{price} NOK</span>
                 </div>
               ) : (
-                <p className="text-red-700 font-bold mb-3">{discountedPrice} NOK</p>
+                <p className="text-red-700 font-bold mb-3">
+                  {discountedPrice} NOK
+                </p>
               )}
               <Link
                 to={`/product/${id}`}
@@ -43,5 +50,3 @@ const ProductList = ({ products }) => {
 };
 
 export default ProductList;
-
-

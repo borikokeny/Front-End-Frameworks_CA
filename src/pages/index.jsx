@@ -5,11 +5,4 @@ import Product from "./product";
 import Checkout from "./checkout";
 import CheckoutSuccess from "./checkoutSuccess";
 
-export {
-  Home,
-  Shop,
-  Contact,
-  Product,
-  Checkout,
-  CheckoutSuccess
-}
+export { Home, Shop, Contact, Product, Checkout, CheckoutSuccess };

@@ -1,43 +1,38 @@
-import React, {useState, useEffect} from "react";
-// import useApi from "../hooks/api";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ProductCard from "../components/productCard";
-// import Ratings from "../components/ratings";
-
 
 function Product() {
-  const {productId} = useParams();
+  const { productId } = useParams();
   const [product, setProduct] = useState(null);
 
-  console.log(productId);
-
   useEffect(() => {
-
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`https://v2.api.noroff.dev/online-shop/${productId}`);
-        const jsonData = await response.json(); 
+        const response = await fetch(
+          `https://v2.api.noroff.dev/online-shop/${productId}`
+        );
+        const jsonData = await response.json();
         if (!response.ok) {
-            throw new Error(`HTTP status ${response.status}`); 
+          throw new Error(`HTTP status ${response.status}`);
         }
-        setProduct(jsonData.data); 
-    } catch (error) {
+        setProduct(jsonData.data);
+      } catch (error) {
         console.error("Failed to fetch product:", error);
-    }
+      }
     };
     fetchProduct();
-    }, [productId]);
-  
+  }, [productId]);
 
   return (
     <div>
-{product ? ( 
-            <ProductCard product={product} />
-            ) : (
-                <p>Loading product details...</p> 
-            )}
-  </div>
+      {product ? (
+        <ProductCard product={product} />
+      ) : (
+        <p>Loading product details...</p>
+      )}
+    </div>
   );
 }
 
-export default Product
+export default Product;

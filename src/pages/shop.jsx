@@ -3,7 +3,6 @@ import useApi from "../hooks/api";
 import Search from "../components/search";
 import ProductList from "../components/productList";
 
-
 function Shop() {
   const url = "https://v2.api.noroff.dev/online-shop";
   const { data } = useApi(url);
@@ -11,10 +10,10 @@ function Shop() {
 
   return (
     <div>
-    <Search />
-    <ProductList products={products}/>
+      <Search />
+      <ProductList products={products} />
     </div>
-  )
+  );
 }
 
-export default Shop
+export default Shop;

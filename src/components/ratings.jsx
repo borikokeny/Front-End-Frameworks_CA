@@ -1,11 +1,15 @@
 import React from "react";
-import { TiStarFullOutline, TiStarHalfOutline, TiStarOutline } from "react-icons/ti";
+import {
+  TiStarFullOutline,
+  TiStarHalfOutline,
+  TiStarOutline,
+} from "react-icons/ti";
 
 const Ratings = ({ rating }) => {
-  const stars = Array.from({ length: 5 }, (element, index) =>{
+  const stars = Array.from({ length: 5 }, (element, index) => {
     let number = index + 0.5;
     return (
-              <span key={index} rating={index}>
+      <span key={index} rating={index}>
         {rating > index + 1 ? (
           <TiStarFullOutline className="text-yellow-500" />
         ) : rating > number ? (
@@ -16,9 +20,7 @@ const Ratings = ({ rating }) => {
       </span>
     );
   });
-  return (
-    <div className="flex justify-start gap-2 items-center">{stars}</div>
-  );
+  return <div className="flex justify-start gap-2 items-center">{stars}</div>;
 };
 
-export default Ratings
+export default Ratings;

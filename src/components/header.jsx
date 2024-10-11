@@ -14,10 +14,16 @@ export default function Header() {
           </Link>
         </div>
         <nav className="w-full md:w-auto flex justify-center space-x-4 md:space-x-24 mt-4 md:mt-0">
-          <Link to="/shop" className="text-xl font-semibold hover:text-gray-200">
+          <Link
+            to="/shop"
+            className="text-xl font-semibold hover:text-gray-200"
+          >
             Shop
           </Link>
-          <Link to="/contact" className="text-xl font-semibold hover:text-gray-200">
+          <Link
+            to="/contact"
+            className="text-xl font-semibold hover:text-gray-200"
+          >
             Contact
           </Link>
         </nav>

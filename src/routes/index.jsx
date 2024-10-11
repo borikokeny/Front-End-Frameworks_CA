@@ -1,7 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "../styles/index.css";
 import { MainLayout } from "../layouts/index";
-import { Home, Shop, Contact, Product, Checkout, CheckoutSuccess } from '../pages/index';
+import {
+  Home,
+  Shop,
+  Contact,
+  Product,
+  Checkout,
+  CheckoutSuccess,
+} from "../pages/index";
 import { CartProvider } from "../components/cart/context/CartContext";
 
 function App() {
@@ -22,54 +29,5 @@ function App() {
     </CartProvider>
   );
 }
+
 export default App;
-
-
-
-
-
-// import { createBrowserRouter } from "react-router-dom";
-// import { MainLayout } from "../layouts/index";
-
-
-// import { Home, Shop, Contact, Product, Checkout, CheckoutSuccess } from '../pages/index';
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <MainLayout />,
-//     children: [
-//       {
-//         path: "/",
-//         element: <Home />
-//       },
-//       {
-//         path: "shop",
-//         element: <Shop />
-//       },
-//       {
-//         path: "contact",
-//         element: <Contact />
-//       },
-//       {
-//         path: "product/:productId",
-//         element: <Product />
-//       },
-//       {
-//         path: "checkout",
-//         element: <Checkout />
-//       },
-//       {
-//         path: "checkoutSuccess",
-//         element: <CheckoutSuccess />
-//       }
-//     ]
-//   },
-//   {
-    
-//   }
-// ]);
-
-// export {
-//   router
-// }
