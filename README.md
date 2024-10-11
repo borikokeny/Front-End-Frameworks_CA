@@ -25,3 +25,9 @@ Integrates a header, navigation with a cart icon showing item count, and a foote
 Manages navigation between pages with dynamic segments for products.<br/>
 <br/>
 The design should be responsive, clean, and use CSS frameworks or styled-components as needed. The code is expected to be well-formatted and organized.
+
+## Built with
+* REACT
+* Tailwind
+* Vite
+
