@@ -37,9 +37,9 @@ const ProductList = ({ products }) => {
               )}
               <Link
                 to={`/product/${id}`}
-                className="inline-block mt-2 w-full text-center bg-red-500 text-white py-2 rounded-none transition-colors duration-300 hover:bg-red-600"
+                className="inline-block mt-2 w-full font-medium text-center bg-red-600 text-white py-2 rounded-none transition-colors duration-300 hover:bg-red-600"
               >
-                View product
+                View Product
               </Link>
             </div>
           </div>
