@@ -1,39 +1,27 @@
-JavaScript Frameworks CA - Jim's Convenience eCom
+# Noroff JavaScript Frameworks CA - Jim's Convenience
+
 ![Jimsconvenience](https://github.com/user-attachments/assets/7c8c0c1f-423c-4f33-8dc7-075791eb9d71)
 
+## Hosted demo
 https://jimsconvenience.netlify.app/
 
-Goal
-To apply knowledge of React to build an eCom store.
+## Goal
+The project is about building a responsive e-commerce store using React and the Noroff API. It includes the following features:
 
-Brief
-The API you are using for this brief is: https://v2.api.noroff.dev/online-shop
-
-You can find individual items by appending a product ID at the end of the API URL e.g. https://v2.api.noroff.dev/online-shop/f99cafd2-bd40-4694-8b33-a6052f36b435
-
-You are tasked with build out the following pages for an eCom store:
-
-Homepage
-Individual product page
-Cart page
-Checkout success page
-Contact page
-The Homepage should have a list of all the products. There should be a look-ahead search bar that filters products when typing in a product name. Clicking on a product should take a user to an individual product page.
-
-You pages should use a <Layout> component that contains a header and footer. The header should contain a nav bar as well as a Cart icon component that acts as a button as well as displays the current number of items in the cart.
-
-The individual product page should display data for a single product. There should be an Add to cart button which, upon clicking, adds the product to the cart. The product page should display the title of the product, the description and the image. There should also be reviews listed for the product, if there are any. You should use the discountedPrice property to display the price of the product. If there is a difference between the discountedPrice and price properties then that means there is a discount for that product. Calculate what this discount is and display it on the page.
-
-Clicking on the Cart icon will load the Cart page, which will list all of the products as well as a total. The Cart page will have a Checkout button. Clicking this Checkout button then goes to a Checkout success page.
-
-The Checkout success page will display a message to the user notifying them that their order was successful. There should also be a link that lets a user go back to the store. The cart must be cleared if the user gets to the Checkout success page.
-
-There will be a contact page which will contain a contact form with the following fields. There must be form validation:
-
-Full name (Minimum number of characters is 3, required)
-Subject (Minimum number of characters is 3, required)
-Email (Must be a valid email address, required)
-Body (Minimum number of characters is 3, required)
-You will be using React Router to switch between pages.
-
-Your design should be responsive. You are welcome to use a CSS Framework, however, you’re encouraged to design from scratch and use styled-components or CSS Modules.
+### Homepage: 
+Displays a list of products with a search bar that filters products as the user types. Clicking a product leads to its individual page.
+### Product Page: 
+Shows product details, including title, description, image, reviews, and discounted prices if available. An "Add to cart" button adds the item to the cart.
+### Cart and Checkout:
+Cart Page: Lists products in the cart and shows the total price.
+Checkout Page: Completes the order and navigates to a success page.
+### Checkout Success Page: 
+Confirms the order and provides a link to return to the store, clearing the cart.
+### Contact Page: 
+A form with validation for name, subject, email, and message fields.
+### Layout Component: 
+Integrates a header, navigation with a cart icon showing item count, and a footer for consistent layout across pages.
+### React Router:
+Manages navigation between pages with dynamic segments for products.<br/>
+<br/>
+The design should be responsive, clean, and use CSS frameworks or styled-components as needed. The code is expected to be well-formatted and organized.
