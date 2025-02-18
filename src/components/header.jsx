@@ -6,7 +6,7 @@ import { useCart } from "./cart/context/CartContext";
 export default function Header() {
   const { cartQuantity } = useCart();
   return (
-    <header className="shadow-md">
+    <header className="shadow-md sticky top-0 z-50 bg-white">
       <div className="container mx-auto flex justify-between items-center p-4 flex-wrap">
         <div className="w-1/3 md:w-auto text-lg font-bold">
           <Link to="/" className="hover:text-gray-200">
