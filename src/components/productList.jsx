@@ -24,20 +24,20 @@ const ProductList = ({ products }) => {
               <h2 className="font-bold text-lg truncate">{title}</h2>
               <Ratings rating={rating} />
               {gotDiscount ? (
-                <div className="mb-3">
+                <div className="mb-2">
                   <span className="text-red-700 font-bold">
                     {discountedPrice} NOK
                   </span>
                   <span className="line-through text-sm ml-2">{price} NOK</span>
                 </div>
               ) : (
-                <p className="text-red-700 font-bold mb-3">
+                <p className="text-red-700 font-bold mb-2">
                   {discountedPrice} NOK
                 </p>
               )}
               <Link
                 to={`/product/${id}`}
-                className="inline-block mt-2 w-full font-medium text-center bg-red-600 text-white py-2 rounded-none transition-colors duration-300 hover:bg-red-600"
+                className="inline-block w-full font-medium text-center bg-red-600 text-white py-2 rounded-none transition-colors duration-300 hover:bg-red-600"
               >
                 View Product
               </Link>
